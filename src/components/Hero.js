@@ -35,14 +35,14 @@ function Hero() {
           <img
             src="/images/sofa.png" // Pfad zum Bild aktualisieren
             alt="Person sitting on a couch with a laptop"
-            className="w-full max-w-md"
+            className="w-full scale-1"
           />
 
         {/* Person - positioniert auf dem Sofa */}
         <img
             src="/images/person.png"
             alt="Person sitting on the sofa"
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 scale-1"
+            className="absolute bottom- left-1/2 transform -translate-x-1/2 scale-1"
           />
 
         {/* Hund - positioniert vor dem Sofa */}
