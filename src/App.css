@@ -1,33 +1,14 @@
+/* App.css */
+
+/* Zentrales Styling für App */
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Animationen oder zusätzliche Stile können hier hinzugefügt werden */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
+/* Beispiel: Animation für ein Logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
