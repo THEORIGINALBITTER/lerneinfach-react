@@ -9,19 +9,19 @@ function Hero() {
         {/* Textbereich */}
         <div className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-800">
-            Large educational <br /> programs
+          Praxisnahe  <br /> Media-, Web- und Marketing-Kurse
           </h1>
           <p className="mt-4 text-lg text-blue-600 font-semibold">
-            Our course is rated excellent by over 42,000 people <span className="text-red-500">★ ★ ★ ★ ★</span>
+          Unsere Kurse wurden von über 2.400 Menschen als ausgezeichnet bewertet <span className="text-red-500">★ ★ ★ ★ ★</span>
           </p>
           <p className="mt-4 text-gray-600">
-            Today, more than 48,000 people have already studied at our university in various fields: programming, photography, marketing and management.
+          Heute haben bereits mehr als 3.800 Menschen unsere Kurse in verschiedenen Bereichen absolviert: Programmierung, 2D, 3D, Marketing und Management.
           </p>
 
           {/* Call-to-Action Buttons */}
           <div className="mt-6 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
             <button className="bg-red-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-red-600 transition">
-              TRY FOR FREE
+            Jetzt kostenlos testen
             </button>
             <button className="border border-red-500 text-red-500 px-6 py-2 rounded-full font-semibold hover:bg-red-500 hover:text-white transition">
               SEE PRICING PLANS

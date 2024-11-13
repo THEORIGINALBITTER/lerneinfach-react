@@ -1,20 +1,26 @@
 // src/components/Navbar.jsx
 import React, { useState } from 'react';
 import { FaLinkedin, FaTwitter, FaInstagram, FaBars, FaYoutube, FaTimes } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
 import { socialMediaLinks, logoPath } from '../config';
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("home"); // Standardmäßig aktiver Link
+  const location = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleLinkClick = (link) => {
-    setActiveLink(link); // Setze den aktiven Link
-    setIsMobileMenuOpen(false); // Schließe das Mobile-Menü nach Auswahl
-  };
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'About', path: '/about' },
+    { name: 'Prices', path: '/prices' },
+    { name: 'Journal', path: '/journal' },
+    { name: 'Pages', path: '/pages' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
   return (
     <header className="fixed top-0 w-full z-50">
@@ -48,25 +54,24 @@ function Navbar() {
           {/* Logo links */}
           <div className="flex items-center space-x-2">
             <img src={logoPath} alt="TOB Logo" className="w-16 h-16" />
-            <span className="text-xl font-bold text-gray-800">TOB <span className="text-gray-600">Lerneinfach</span></span>
+            <span className="text-xl font-bold text-gray-800"><span className="text-gray-600"></span></span>
           </div>
 
           {/* Desktop Menü-Links */}
           <div className="hidden md:flex space-x-8 items-center">
-            {["home", "courses", "about", "prices", "journal", "pages", "contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link}`}
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
                 className={`text-gray-800 hover:text-indigo-600 relative ${
-                  activeLink === link ? "active-link" : ""
+                  location.pathname === link.path ? "active-link" : ""
                 }`}
-                onClick={() => handleLinkClick(link)}
               >
-                {link.charAt(0).toUpperCase() + link.slice(1)}
-                {activeLink === link && (
+                {link.name}
+                {location.pathname === link.path && (
                   <span className="absolute bottom-[-30px] left-0 w-full h-2 bg-gradient-to-r from-pink-500 to-orange-400 rounded-full"></span>
                 )}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -81,15 +86,15 @@ function Navbar() {
         {/* Mobile Menü - Vollbild */}
         {isMobileMenuOpen && (
           <div className="md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6">
-            {["home", "courses", "about", "prices", "journal", "pages", "contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link}`}
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
                 className="text-gray-800 hover:text-indigo-600 text-2xl"
-                onClick={() => handleLinkClick(link)}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                {link.charAt(0).toUpperCase() + link.slice(1)}
-              </a>
+                {link.name}
+              </Link>
             ))}
           </div>
         )}

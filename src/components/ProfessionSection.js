@@ -17,15 +17,12 @@ function ProfessionSection() {
         
         {/* Textbereich rechts */}
         <div className="md:w-1/2 mt-8 md:mt-0 md:ml-12 text-center md:text-left">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Learn and get a profession online</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Lerne Wissen mit echten Projekten</h2>
           <p className="text-gray-600 mb-6">
-            Morbi tempor eleifend condimentum. Etiam mollis urna et massa tempus vulputate.
-            Nunc sed nisl est. Donec non consectetur elit. Praesent accumsan elit urna,
-            eget mattis turpis aliquam a. In scelerisque sagittis bibendum consequat.
-            Quisque porta volutpat ligula sit amet varius.
+          Vertiefe dein Wissen durch praxisnahe Projekte! Unser innovativer Lernansatz verbindet Theorie mit echten, praxisrelevanten Aufgaben, sodass du direkt an realen Projekten arbeiten kannst. Egal ob du deine Fähigkeiten in IT, Marketing, Design oder Business weiterentwickeln möchtest – bei uns sammelst du wertvolle Erfahrung und wendest dein Wissen sofort praktisch an. Starte jetzt und lerne nicht nur für das Wissen, sondern für den Erfolg in deiner Karriere!
           </p>
           <button className="bg-gradient-to-r from-pink-500 to-orange-400 text-white px-6 py-3 rounded-md font-semibold hover:opacity-90 transition">
-            TRY FOR FREE
+            Starte jetzt
           </button>
         </div>
 

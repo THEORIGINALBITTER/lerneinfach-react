@@ -5,49 +5,60 @@ import { FaCheckCircle, FaStar } from 'react-icons/fa';
 function HowItWorks() {
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-6 md:max-w-4xl flex flex-col md:flex-row items-center">
+      <div className="container mx-auto px-6 md:max-w-4xl relative">
         
-        {/* Linke Spalte - Features mit Hintergrund */}
-        <div className="md:w-2/3 p-8 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl shadow-lg">
-          <h2 className="text-3xl font-bold mb-6">How does it work?</h2>
-          
-          {/* Feature-Liste */}
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4">
-              <FaCheckCircle className="text-orange-400 text-xl" />
-              <div>
-                <h3 className="font-semibold text-lg">4 on-line lectures with a teacher</h3>
-                <p className="text-gray-100">
-                  Quisque eget porta mauris. Praesent eu tincidunt nulla, suscipit lobortis est.
-                </p>
-              </div>
-            </div>
+        {/* Farbverlauf-Container */}
+        <div className="p-8 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl shadow-lg relative z-10">
+          <div className="max-w-md text-left"> {/* Begrenzung der Textbreite und linksbündig */}
+            <h2 className="text-3xl font-bold mb-6">Wie funktioniert es?</h2>
             
-            <div className="flex items-start space-x-4">
-              <FaCheckCircle className="text-orange-400 text-xl" />
-              <div>
-                <h3 className="font-semibold text-lg">Subscription gives access to education materials and videos</h3>
-                <p className="text-gray-100">
-                  Quisque eget porta mauris. Praesent eu tincidunt nulla, suscipit lobortis est.
-                </p>
+            {/* Feature-Liste */}
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <FaCheckCircle className="text-orange-400 text-xl" />
+                <div>
+                  <h3 className="font-semibold text-lg">Lerne flexibel mit unseren Online- und Inhouse-Kursen!</h3>
+                  <p className="text-gray-100">
+                  Ob bequem von zu Hause oder direkt vor Ort – alles, was du brauchst, ist ein Laptop und die Motivation, Neues zu lernen. 
+                  </p>
+                </div>
               </div>
-            </div>
-            
-            <div className="flex items-start space-x-4">
-              <FaCheckCircle className="text-orange-400 text-xl" />
-              <div>
-                <h3 className="font-semibold text-lg">After completing the course and completing the tasks, you will receive a certificate</h3>
-                <p className="text-gray-100">
-                  Quisque eget porta mauris. Praesent eu tincidunt nulla, suscipit lobortis est.
-                </p>
+              
+              <div className="flex items-start space-x-4">
+                <FaCheckCircle className="text-orange-400 text-xl" />
+                <div>
+                  <h3 className="font-semibold text-lg">Effektives Inhouse-Training!</h3>
+                  <p className="text-gray-100">
+                  Wir bieten maßgeschneiderte Schulungen direkt bei Ihnen vor Ort – ob im 1-zu-1-Coaching oder für mehrere Teilnehmer. Profitieren Sie von praxisnahen Trainings, die individuell auf Ihre Anforderungen abgestimmt sind und Ihre Teams nachhaltig weiterbringen!
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <FaCheckCircle className="text-orange-400 text-xl" />
+                <div>
+                  <h3 className="font-semibold text-lg">Nach dem Training </h3>
+                  <p className="text-gray-100">
+                  erhalten Sie Ihr Zertifikat und exklusiven Online-Zugang zu allen wichtigen Themeninhalten – so können Sie jederzeit nachschauen und Ihr Wissen auffrischen. Mit unserem Pluspaket profitieren Sie zusätzlich von einem 4-stündigen Nachtraining für noch mehr Lernerfolg!”
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Grafik über dem Testimonial */}
+        <img
+          src="/images/welle.png" // Der Pfad zur Grafik
+          alt="Dekorative Welle"
+          className="absolute top-[-10%] right-[5%] wavy-image z-30 md:block" // Positioniert und animiert
+          style={{ width: '250px' }}
+        />
+
+
         {/* Rechte Spalte - Testimonial */}
-        <div className="md:w-1/3 p-8 bg-white rounded-xl shadow-lg text-center md:ml-8 mt-8 md:mt-0">
-          <img
+        <div className="mt-10 md:mt-0 md:absolute md:top-[30%] md:right-[5%] p-8 bg-white rounded-xl shadow-lg text-center w-full md:w-80 z-20">
+        <img
             src="/images/01.webp" // Der Pfad zu deinem Bild
             alt="Testimonial"
             className="w-24 h-24 rounded-full mx-auto mb-4"
