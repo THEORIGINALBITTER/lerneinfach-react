@@ -14,7 +14,7 @@ export const socialMediaLinks = {
     phone: "+49 151 5323 1791",
   };
   
-  export const footerText = "Lerne Wissen Online und VorOrt mit echten Projekten.";
+  export const footerText = "Vor Ort oder Online mit echten Projekten.";
 
   export const bgFooter = `linear-gradient(0deg, rgba(255,255,255,0.9), rgba(255,255,255,0.9)), linear-gradient(127.36deg, #6a11cb 31.85%, #2575fc 108.53%)`;
 

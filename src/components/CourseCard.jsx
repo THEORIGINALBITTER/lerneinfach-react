@@ -2,7 +2,7 @@ import React from 'react';
 
 function CourseCard({ course, icon }) {
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6">
+    <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col h-full">
       <div className="flex items-start space-x-4 mb-4">
         {/* Icon linksbündig */}
         <div className="flex-shrink-0">{icon}</div>
@@ -21,16 +21,18 @@ function CourseCard({ course, icon }) {
       </div>
 
       {/* Beschreibungspunkte linksbündig und kleiner */}
-      <ul className="list-disc pl-4 text-gray-600 text-sm space-y-1 text-left">
+      <ul className="list-disc pl-4 text-gray-600 text-sm space-y-1 text-left mb-4">
         {course.description.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
-      
-      {/* Button zentriert */}
-      <button className="mt-4 w-full py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
-        Sign up for a course
-      </button>
+
+      {/* Button zentriert und am unteren Rand fixiert */}
+      <div className="mt-auto">
+        <button className="w-full py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-red-500 transition">
+        Alle Infos, zum Kurs, die du brauchst!
+        </button>
+      </div>
     </div>
   );
 }

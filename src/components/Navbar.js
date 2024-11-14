@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React, { useState } from 'react';
-import { FaLinkedin, FaTwitter, FaInstagram, FaBars, FaYoutube, FaTimes } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaBars, FaYoutube, FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import { socialMediaLinks, logoPath } from '../config';
 
@@ -13,14 +13,43 @@ function Navbar() {
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Courses', path: '/courses' },
-    { name: 'About', path: '/about' },
-    { name: 'Prices', path: '/prices' },
+    { name: 'Start', path: '/' },
+    { name: 'Kurse', path: '/courses' },
+    { name: 'Wir', path: '/about' },
+    { name: 'Preise', path: '/prices' },
     { name: 'Journal', path: '/journal' },
-    { name: 'Pages', path: '/pages' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Sag Hallo', path: '/contact' },
   ];
+
+  // Dynamische Erstellung von breadcrumbMap aus navLinks
+  const breadcrumbMap = navLinks.reduce((map, link) => {
+    const pathKey = link.path.replace('/', ''); // Entfernt den führenden Slash
+    map[pathKey] = link.name;
+    return map;
+  }, {});
+
+  // Breadcrumbs-Logik mit dynamischer Zuordnung
+  const generateBreadcrumbs = () => {
+    const pathnames = location.pathname.split('/').filter((x) => x);
+
+    return (
+      <nav className="bg-gray-100 py-2 text-gray-600 text-sm">
+        <div className="container mx-auto px-4 flex">
+          <Link to="/" className="text-blue-500 hover:underline">Start</Link>
+          {pathnames.map((value, index) => {
+            const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+            const displayName = breadcrumbMap[value] || value; // Dynamische Anzeige des Namens
+
+            return (
+              <span key={to} className="ml-2">
+                / <Link to={to} className="text-blue-500 hover:underline capitalize">{displayName}</Link>
+              </span>
+            );
+          })}
+        </div>
+      </nav>
+    );
+  };
 
   return (
     <header className="fixed top-0 w-full z-50">
@@ -30,9 +59,6 @@ function Navbar() {
           <div className="flex items-center space-x-4">
             <a href={socialMediaLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
               <FaLinkedin />
-            </a>
-            <a href={socialMediaLinks.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-              <FaTwitter />
             </a>
             <a href={socialMediaLinks.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
               <FaInstagram />
@@ -51,10 +77,10 @@ function Navbar() {
       {/* Haupt-Navigationsleiste */}
       <nav className="bg-white shadow-md">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          {/* Logo links */}
-          <div className="flex items-center space-x-2">
-            <img src={logoPath} alt="TOB Logo" className="w-16 h-16" />
-            <span className="text-xl font-bold text-gray-800"><span className="text-gray-600"></span></span>
+          {/* Logo und Text untereinander, linksbündig */}
+          <div className="flex flex-col items-start">
+            <img src={logoPath} alt="TOB Logo" className="w-24 h-16" />
+            <span className="text-lg font-bold text-gray-800 -mt-1/2">LERN EINFACH Authentisch</span>
           </div>
 
           {/* Desktop Menü-Links */}
@@ -68,9 +94,11 @@ function Navbar() {
                 }`}
               >
                 {link.name}
-                {location.pathname === link.path && (
-                  <span className="absolute bottom-[-30px] left-0 w-full h-2 bg-gradient-to-r from-pink-500 to-orange-400 rounded-full"></span>
-                )}
+                <span
+                  className={`absolute bottom-[-30px] left-0 w-full h-2 bg-gradient-to-r from-pink-500 to-orange-400 rounded-full transition-all duration-300 transform ${
+                    location.pathname === link.path ? "bottom-[-30px]" : "opacity-0"
+                  } hover:opacity-100 hover:bottom-[-2px]`}
+                ></span>
               </Link>
             ))}
           </div>
@@ -83,19 +111,24 @@ function Navbar() {
           </div>
         </div>
 
+        {/* Breadcrumbs */}
+        {location.pathname !== '/' && generateBreadcrumbs()}
+
         {/* Mobile Menü - Vollbild */}
         {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="text-gray-800 hover:text-indigo-600 text-2xl"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <div className="md:hidden fixed inset-0 bg-gradient-to-r from-[#f0e7ff] to-[#f6f3ff] z-50 flex flex-col items-center justify-center space-y-6">
+            <div className="w-full h-full flex flex-col items-center justify-center">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="text-gray-800 hover:text-indigo-600 text-2xl"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </div>
         )}
       </nav>

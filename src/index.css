@@ -17,3 +17,77 @@
   .wavy-image {
     animation: rotateWave 8s ease-in-out infinite;
   }
+
+/* Standard-Animation für Icons */
+@keyframes floatUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* Allgemeine Animation */
+.icon-animation {
+  animation: floatUp 4s linear infinite;
+}
+
+/* Leichte Verzögerung für den Daumen */
+.icon-animation-daumen {
+  animation: floatUp 5s ease-out infinite;
+}
+
+/* Scrollleisten ausblenden für Webkit-Browser (Chrome, Safari) */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollleisten ausblenden für Firefox */
+body {
+  scrollbar-width: none;
+}
+
+/* Scrollleisten ausblenden für Edge und IE */
+body {
+  -ms-overflow-style: none;
+}
+
+
+
+
+/* src/components/Hero.css */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* icon farbe */
+
+/* Allgemeiner Hintergrund für Icons */
+.icon-bg {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 10px;
+  background-size: 200% 200%;
+  transition: background 0.3s ease;
+}
+

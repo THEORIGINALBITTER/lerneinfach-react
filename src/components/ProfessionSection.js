@@ -13,6 +13,32 @@ function ProfessionSection() {
             alt="Learning Illustration"
             className="w-full max-w-md" // Volle Breite, begrenzt auf eine maximale Breite
           />
+          {/* Animierte Bilder */}
+          <img
+              src="/images/herz.png"
+              alt="Icon 1"
+              className="absolute w-10 h-10 animate-float icon-animation"
+              style={{ bottom: '0%', left: '20%' }}
+            />
+            <img
+              src="/images/message.png"
+              alt="Nachrichten Messenger"
+              className="absolute w-10 h-10 animate-float icon-animation"
+              style={{ bottom: '10%', left: '40%' }}
+            />
+            <img
+              src="/images/wlan.png"
+              alt="Online Wlan"
+              className="absolute w-10 h-10 animate-float icon-animation"
+              style={{ bottom: '20%', left: '60%' }}
+            />
+            {/* Daumen-Bild hinzufügen */}
+            <img
+              src="/images/daumen.png"
+              alt="Daumen hoch"
+              className="absolute w-12 h-12 animate-float icon-animation"
+              style={{ bottom: '5%', left: '50%' }}
+            />
         </div>
         
         {/* Textbereich rechts */}
